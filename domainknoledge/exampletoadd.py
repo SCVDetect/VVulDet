@@ -4,8 +4,6 @@ import pandas as pd
 pathdata = "."
 domain = pd.read_csv(f"{pathdata}/sample_domain_data.csv")
 domain.head()
-
-# select only C/C++ reference functions
 samplec = domain[(domain['Language'] == ' C ') | (domain['Language'] == ' C# ') | (domain['Language'] == ' C++ ')]
 
 #  read bigvul dataset
