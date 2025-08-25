@@ -15,7 +15,7 @@ except:
     import utils.utills as imp
 
 def _c2dhelper(item):
-    """Given item with func_before, func_after, id, and dataset, save gitdiff."""
+    """for func_before, func_after, id, and dataset, save gitdiff."""
     savedir = imp.get_dir(imp.cache_dir() / item["dataset"] / "gitdiff")
     savepath = savedir / f"{item['id']}.git.pkl"
     if os.path.exists(savepath):
@@ -43,6 +43,7 @@ def rdg(edges, gtype):
             | (edges.etype == "AST")
             | (edges.etype == "EVAL_TYPE")
             | (edges.etype == "REF")
+            | (edges.etype == "DDG")
         ]
 
 def get_codediff(dataset, iid):
@@ -57,7 +58,6 @@ def get_codediff(dataset, iid):
 
 def allfunc(row):
     """Return a combined function (before + after commit) given the diff.
-
     diff = return raw diff of combined function
     added = return added line numbers relative to the combined function (start at 1)
     removed = return removed line numbers relative to the combined function (start at 1)
@@ -100,11 +100,9 @@ def allfunc(row):
 
 def Dataset(minimal=True, sample=False, return_raw=False, splits="default"):
     """Read Dataset Data.
-
     Args:
         sample (bool): Only used for testing!
         splits (str): default, crossproject-(linux|Chrome|Android|qemu)
-
     EDGE CASE FIXING:
     id = 177860 should not have comments in the before/after
     """
@@ -263,9 +261,7 @@ def ne_groupnodes(n, e):
 
 def neighbour_nodes(nodes, edges, nodeids: list, hop: int = 1, intermediate=True):
     """Given nodes, edges, nodeid, return hop neighbours.
-
     nodes = pd.DataFrame()
-
     """
     nodes_new = (
         nodes.reset_index(drop=True).reset_index().rename(columns={"index": "adj"})
@@ -351,7 +347,6 @@ def assign_line_num_to_local(nodes, edges, code):
 
 def get_node_edges(filepath, verbose=0):
     """Get node and edges given filepath (must run after run_joern).
-
     filepath = "Dataset/before/53.c"
     """
     outdir = Path(filepath).parent
@@ -378,7 +373,6 @@ def get_node_edges(filepath, verbose=0):
             if verbose > 1:
                 imp.debug(f"Failed {filepath}: {E}")
             return None
-    #print(nodes)
     # Assign line number to local variables
     with open(filepath, "r") as f:
         code = f.readlines()
