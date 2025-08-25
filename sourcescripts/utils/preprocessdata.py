@@ -8,7 +8,6 @@ import numpy as np
 import json
 import os
 import re
-
 try:
     import utills as imp     
 except:
