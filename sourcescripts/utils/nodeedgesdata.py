@@ -303,6 +303,7 @@ def rdg(edges, gtype):
             | (edges.etype == "AST")
             | (edges.etype == "EVAL_TYPE")
             | (edges.etype == "REF")
+            | (edges.etype == "DDG")
         ]
 
 
