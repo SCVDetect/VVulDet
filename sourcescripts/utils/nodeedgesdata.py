@@ -8,7 +8,6 @@ import numpy as np
 import random
 import shutil
 import json
-
 try:
     import utills as imp  
     import preprocessdata as prep      
@@ -16,10 +15,8 @@ except:
     import utils.utills as imp
     import utils.preprocessdata as prep
 
-
 def nodelabel2line(label: str):
     """Given a node label, return the line number.
-
     Example:
     s = "METHOD_1.0: static long main()..."
     nodelabel2line(s)
@@ -83,7 +80,6 @@ def get_digraph(nodes, edges, edge_label=True):
             dot.edge(str(e[0]), str(e[1]), **style)
     return dot
 
-
 def run_joern(filepath: str, verbose: int):
     """Extract graph using most recent Joern."""
     script_file = imp.external_dir() / "get_func_graph.scala"
@@ -100,7 +96,6 @@ def run_joern(filepath: str, verbose: int):
         if verbose > 4:
             print(E)
         pass
-
 
 def get_node_edges(filepath: str, verbose=0):
     """Get node and edges given filepath (must run after run_joern).
@@ -129,7 +124,6 @@ def get_node_edges(filepath: str, verbose=0):
             if verbose > 1:
                 imp.debug(f"Failed {filepath}: {E}")
             return None
-
     # Assign line number to local variables
     with open(filepath, "r") as f:
         code = f.readlines()
@@ -188,7 +182,6 @@ def get_node_edges(filepath: str, verbose=0):
 
     return nodes, edges
 
-
 def plot_node_edges(filepath: str, lineNumber: int = -1, filter_edges=[]):
     """Plot node edges given filepath (must run after get_node_edges).
 
@@ -228,8 +221,6 @@ def full_run_joern(filepath: str, verbose=0):
         if verbose > 0:
             imp.debug(f"Failed {filepath}: {E}")
         return None
-
-
 def full_run_joern_from_string(code: str, dataset: str, iid: str, verbose=0):
     """Run full joern from a string instead of file."""
     savedir = imp.get_dir(imp.interim_dir() / dataset)
@@ -237,7 +228,6 @@ def full_run_joern_from_string(code: str, dataset: str, iid: str, verbose=0):
     with open(savepath, "w") as f:
         f.write(code)
     return full_run_joern(savepath, verbose)
-
 
 def neighbour_nodes(nodes, edges, nodeids: list, hop: int = 1, intermediate=True):
     """Given nodes, edges, nodeid, return hop neighbours.
@@ -269,7 +259,6 @@ def neighbour_nodes(nodes, edges, nodeids: list, hop: int = 1, intermediate=True
             .toarray()[0]
             .nonzero()[0]
         ]
-
     neighbours = defaultdict(list)
     if intermediate:
         for h in range(1, hop + 1):
@@ -305,8 +294,7 @@ def rdg(edges, gtype):
             | (edges.etype == "REF")
             | (edges.etype == "DDG")
         ]
-
-
+        
 def assign_line_num_to_local(nodes, edges, code):
     """Assign line number to local variable in CPG."""
     label_nodes = nodes[nodes._label == "LOCAL"].id.tolist()
@@ -347,7 +335,6 @@ def assign_line_num_to_local(nodes, edges, code):
             continue
     return local_line_map
 
-
 def drop_lone_nodes(nodes, edges):
     """Remove nodes with no edge connections.
 
@@ -357,7 +344,6 @@ def drop_lone_nodes(nodes, edges):
     """
     nodes = nodes[(nodes.id.isin(edges.innode)) | (nodes.id.isin(edges.outnode))]
     return nodes
-
 
 def plot_graph_node_edge_df(
     nodes, edges, nodeids=[], hop=1, drop_lone_nodes=True, edge_label=True
@@ -373,7 +359,6 @@ def plot_graph_node_edge_df(
     # Drop lone nodes
     if drop_lone_nodes:
         nodes = nodes[(nodes.id.isin(edges.innode)) | (nodes.id.isin(edges.outnode))]
-
     # Get subgraph
     if len(nodeids) > 0:
         nodeids = nodes[nodes.lineNumber.isin(nodeids)].id
