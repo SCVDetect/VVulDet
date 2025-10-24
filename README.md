@@ -5,24 +5,24 @@ Paper submitted to XXX Journal.
 
 The source code for training the model is located in `./sourcescripts`, and the dataset construction instructions can be found in `./domainknowledge`.
 
-1. **Clone the project repository.**
+#### 1. **Clone the project repository.**
 
 ```bash
    git clone https://github.com/SCVDetect/VVulDet.git
 ```
 
-2. **Install the required Python packages.**
+#### 2. **Install the required Python packages.**
 
 ```bash
 pip install -r requirements.txt
 ```
-3. **Dataset and CPG Extraction.**
+#### 3. **Dataset and CPG Extraction.**
 
-Dataset: We used publicly available datasets named BigVul-C/C++, Project_KB-Java, MegaVul-Java, and CVEFixes-Python.
+- Dataset: We used publicly available datasets named BigVul-C/C++, Project_KB-Java, MegaVul-Java, and CVEFixes-Python.
 
-CPG Extraction: We use Joern to parse the source code, extracting relevant nodes and edge data.
+- CPG Extraction: We use Joern to parse the source code, extracting relevant nodes and edge data.
 
-Running the following commands will install a specific Joern version for CPG extraction and download the Python version of the CVEFixes dataset from our drive.
+- Running the following commands will install a specific Joern version for CPG extraction and download the Python version of the CVEFixes dataset from our drive.
 
 ```bash
 chmod +x ./run.sh
@@ -30,17 +30,17 @@ chmod +x ./run.sh
 ./zrun/getjoern.sh
 ```
 
-4. **Train/Test.**
+#### 4. **Train/Test.**
 
 ```bash
 ./zrun/Process_train_test.sh
 ```
-5. **Results.**
-The results will be stored in ```storage/outputs/```. We provided a pre-trained model on Megavul data, a fine-tuned CodeBERT for feature embedding, and a set of functions constructed for testing. These can be downloaded while running ```.zrun/getJoern.sh```. Alternatively, a fully constructed function can be downloaded directly from Zenodo at [Link](https://zenodo.org/records/16629448?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImM3YTE1NzY0LTViN2UtNGE0NS1hOTVkLTA3NzdiYTU4YzkzYiIsImRhdGEiOnt9LCJyYW5kb20iOiIwNTQ2MWVlNjAxOWQ3OGE1NWMwNWMyZWIyYWViNDU4NyJ9.xQtMKVIZkkUWTmHSOrjU85PB3S6VMTTe85v8TgAlVxEHD-CmWWv4iPrdG1jYAtGAvs_ZMfyD8QbQ1FulpIzriA).
+#### 5. **Results.**
+- The results will be stored in ```storage/outputs/```. We provided a pre-trained model on Megavul data, a fine-tuned CodeBERT for feature embedding, and a set of functions constructed for testing. These can be downloaded while running ```.zrun/getJoern.sh```. Alternatively, a fully constructed function can be downloaded directly from Zenodo at [Link](https://zenodo.org/records/16629448?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImM3YTE1NzY0LTViN2UtNGE0NS1hOTVkLTA3NzdiYTU4YzkzYiIsImRhdGEiOnt9LCJyYW5kb20iOiIwNTQ2MWVlNjAxOWQ3OGE1NWMwNWMyZWIyYWViNDU4NyJ9.xQtMKVIZkkUWTmHSOrjU85PB3S6VMTTe85v8TgAlVxEHD-CmWWv4iPrdG1jYAtGAvs_ZMfyD8QbQ1FulpIzriA).
 
-An example of the returned results in the form of a CSV is available at ```./sourcescripts/storage/output```, containing some metrics.
+- An example of the returned results in the form of a CSV is available at ```./sourcescripts/storage/output```, containing some metrics.
 
-Below is a preview of the contents of `cwe_level_metrics.csv`:
+- Below is a preview of the contents of `cwe_level_metrics.csv`:
 
 | CWE_ID   | num_functions | num_statements | func_accuracy | func_precision | func_recall | func_f1 | stmt_accuracy | stmt_precision | stmt_recall | stmt_f1 | func_pr_auc | stmt_pr_auc |
 |----------|---------------|----------------|---------------|----------------|-------------|---------|---------------|----------------|-------------|---------|--------------|--------------|
@@ -56,7 +56,7 @@ Below is a preview of the contents of `cwe_level_metrics.csv`:
 
 ### Section 2: **Gathering Domain Data.**
 
-Navigate to ```./domainknowledge```.
+- Navigate to ```./domainknowledge```.
 
 
 
