@@ -10,7 +10,7 @@ from tqdm import tqdm
 
 df = pd.read_csv("Testdata/projectkbtest.csv")
 df = df[1658:]
-df['Code'] = df['func_after'] 
+df['Code'] = df['func_before'] 
 # Bedrock client for Llama 3
 client = boto3.client("bedrock-runtime", region_name="eu-west-1")
 model_id = "arn:aws:bedrock:eu-west-1:742833394292:inference-profile/eu.meta.llama3-2-3b-instruct-v1:0"
