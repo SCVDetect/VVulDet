@@ -3,6 +3,12 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+domainknoledge/cvelistV5-main
+domainknoledge/1000.csv
+domainknoledge/cvelistV5-main.zip
+domainknoledge/1000.csv.zip
+domainknoledge/checkdata.py
+domainknoledge/sample_domain_data.csv
 
 sourcescripts/storage/outputs/function_level_metrics.csv
 sourcescripts/storage/outputs/statement_level_metrics.csv
