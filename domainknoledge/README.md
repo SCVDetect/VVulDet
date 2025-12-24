@@ -9,8 +9,4 @@ Domain Knowledge Data Sources.
 
 3- [collectreffunction.py]() processes several Mitre web pages to search for reference functions, while [exampletoadd.py]() is used to add domain information to the dataset.
 
-4- Final data plus domain:
-- CVEFixes-Python: [Link](https://drive.google.com/file/d/14vtngKXaBPI43aKRfd6-PoV3peDtd5XU/view?usp=sharing)
-- MegaVul-Java: [Link](https://drive.google.com/file/d/14TT--A5nFHmbNSe3vfqmz930RDAhKFO1/view?usp=sharing)
-- ProjectKB-Java: [Link](https://drive.google.com/file/d/1W3Truwd_kEAGYwBgHd6hRLELAeyQRBwT/view?usp=sharing)
-- BigVul-C/C++: [Link](https://drive.google.com/file/d/1bIbhqCy1jlkzyXItaUrJA_mYE9kfs2Qz/view?usp=sharing)
+
