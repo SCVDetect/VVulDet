@@ -137,7 +137,7 @@ def Dataset(minimal=True, sample=False, return_raw=False, splits="default"):
         except Exception as E:
             print(E)
             pass
-    filename = "sample_Graph.csv" if sample else "MegaVul_Java_Domain.csv" #"domain_Dataset-Python.csv"
+    filename = "sample_Graph.csv" if sample else "Prepocess_bigvul_domain.csv"
     df = pd.read_csv(imp.external_dir() / filename) 
     df["dataset"] = "Dataset" 
 
@@ -513,8 +513,8 @@ def helper(row):
     removed = df[df.id==177775].removed.item()
     helper({"id":177775, "removed": removed, "added": added})
     """
-    before_path = str(imp.processed_dir() / f"Dataset/before/{row['id']}.java")
-    after_path = str(imp.processed_dir() / f"Dataset/after/{row['id']}.java")
+    before_path = str(imp.processed_dir() / f"Dataset/before/{row['id']}.c")
+    after_path = str(imp.processed_dir() / f"Dataset/after/{row['id']}.c")
     try:
         dep_add_lines = get_dep_add_lines(before_path, after_path, row["added"])
     except Exception:

@@ -30,10 +30,10 @@ def preprocess(row):
     savedir_description_CWE = imp.get_dir(imp.processed_dir() / row['dataset'] / "CWEdescription")
     savedir_sample_func = imp.get_dir(imp.processed_dir() / row['dataset'] / "CWE_Samples")
 
-    fpath1 = savedir_before / f"{row['id']}.java"
+    fpath1 = savedir_before / f"{row['id']}.c"
     with open(fpath1, "w") as f:
         f.write(row["before"])
-    fpath2 = savedir_after / f"{row['id']}.java"
+    fpath2 = savedir_after / f"{row['id']}.c"
     if len(row["diff"]) > 0:
         with open(fpath2, "w") as f:
             f.write(row["after"])

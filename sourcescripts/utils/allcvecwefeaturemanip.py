@@ -68,7 +68,7 @@ class DatasetDataset:
     
     def itempath(_id):
         """Get itempath path from item id."""
-        return imp.processed_dir() / f"Dataset/before/{_id}.java"
+        return imp.processed_dir() / f"Dataset/before/{_id}.c"
 
     def check_validity(_id):
         """Check whether sample with id=_id has node/edges.
