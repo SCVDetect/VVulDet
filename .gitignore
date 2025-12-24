@@ -2,8 +2,8 @@
 __pycache__/
 *.py[codz]
 *$py.class
-sourcescripts/storage/external/Prepocess_bigvul_domain.csv
-sourcescripts/storage/external/preprocessed_bigvul_dataset.csv
+
+
 sourcescripts/storage/outputs/function_level_metrics.csv
 sourcescripts/storage/outputs/statement_level_metrics.csv
 sourcescripts/storage/outputs/function_level_predictions.csv
