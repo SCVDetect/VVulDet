@@ -1,5 +1,5 @@
 ### Domain-Aware Graph Neural Networks for Source Code Vulnerability Detection
-Paper submitted to XXX Journal.
+Paper published by the Information and Software Technology journal.
 
 ### Section 1: Experiment Replication
 
@@ -63,7 +63,16 @@ chmod +x ./run.sh
 
 ### Citation
 
-To be provided
+```sh
+@article{foulefack2026domain,
+  title={Domain-aware graph neural networks for source code vulnerability detection},
+  author={Foulefack, Rosmael Zidane Lekeufack and Marchetto, Alessandro},
+  journal={Information and Software Technology},
+  pages={108104},
+  year={2026},
+  publisher={Elsevier}
+}
+```
 
 
 ##### Acknowledgment:
