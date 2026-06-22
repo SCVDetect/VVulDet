@@ -76,4 +76,9 @@ chmod +x ./run.sh
 
 
 ##### Acknowledgment:
+
+
+#### The work was supported by the European Union Horizon Europe Research and Innovation Programme under Grant 101120393 [(Sec4Ai4Sec)](https://www.sec4ai4sec-project.eu/)
+
+
 ###### We thank [LineVD](https://github.com/davidhin/linevd) for providing the source code of their project, which has served as a foundation for the current research project.
