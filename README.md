@@ -75,7 +75,7 @@ chmod +x ./run.sh
 ```
 
 
-##### Acknowledgment:
+### Acknowledgment:
 
 
 #### The work was supported by the European Union Horizon Europe Research and Innovation Programme under Grant 101120393 [(Sec4Ai4Sec)](https://www.sec4ai4sec-project.eu/)
